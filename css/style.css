@@ -49,10 +49,6 @@ header h1 {
   font-size: 34px;
   font-weight: bold;
 }
-/* メインビジュアル */
-.mainvisual img {
-  width: 100%;
-}
 /* About */
 #about {
   max-width: 1080px;
