@@ -11,6 +11,8 @@ body {
 a {
   text-decoration: none;
   color: #000000;
+  transition-duration: 0.5s;
+  cursor: pointer;
 }
 h1 {
   margin: 0;
@@ -34,30 +36,31 @@ header {
 header h1 {
   font-size: 34px;
   border: 2px solid #000000;
-  padding: 16px 32px;
+  padding: 0px 20px;
   align-self: center;
 }
 #header-nav ul {
   display: flex;
-  font-size: 34px;
-  gap: 32px;
-  font-weight: bold;
+  gap: 20px;
+  padding: 0;
   list-style: none;
 }
-/* メインビジュアル */
-#mainvisual {
-  width: 100%;
-  text-align: center;
+#header-nav a {
+  font-size: 34px;
+  font-weight: bold;
 }
-#mainvisual img {
+/* メインビジュアル */
+.mainvisual img {
   width: 100%;
-  margin: 0 auto;
 }
 /* About */
 #about {
   max-width: 1080px;
   margin: 0 auto;
   padding: 0 20px 60px;
+
+  opacity: 0;
+  transition-duration: 0.5s;
 }
 .section-title {
   font-weight: bold;
@@ -90,6 +93,9 @@ header h1 {
   text-align: center;
   margin: 0 auto;
   padding: 0 20px 60px;
+
+  opacity: 0;
+  transition-duration: 0.5s;
 }
 #works-contents {
   display: flex;
@@ -101,9 +107,43 @@ header h1 {
 }
 .works-item img {
   width: 100%;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+.works-item img:hover {
+  opacity: 0.5;
 }
 .works-item p {
   text-align: left;
+}
+/* モーダル */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+.modal .modal-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 80%;
+  max-width: 800px;
+}
+.modal #close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
 }
 /* フッター */
 footer {
@@ -113,9 +153,35 @@ footer {
 #copyright {
   font-size: 18px;
 }
+/* TOPに戻るボタン */
+#back-btn {
+  opacity: 0;
+  display: inline;
+  transition-duration: 0.5s;
+  padding: 28px 24px;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  border-radius: 50%;
 
+  position: fixed;
+  bottom: 38px;
+  right: 20px;
+}
 /* スマートフォン用 */
 @media screen and (max-width: 767px) {
+  /* Header */
+  header h1 {
+    font-size: 24px;
+  }
+  #header-nav ul {
+    gap: 16px;
+  }
+  #header-nav a {
+    font-size: 24px;
+  }
   /* About */
   #about-contents {
     flex-direction: column;
